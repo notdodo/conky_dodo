@@ -1,0 +1,71 @@
+--=============================================================================
+--								conkyrc_dodo
+-- Date		: 27/03/2016
+-- Author	: edoz90
+-- Version	: v1.0
+-- License 	: Distributed under the terms of GNU GPL version 3
+--
+-- This version is a modification of conkyrc_seamod from SeaJey
+-- URL: http://seajey.deviantart.com/art/Conky-Seamod-v0-1-283461046
+--
+--=============================================================================
+
+conky.config = {
+-- --------------- Window Settings
+	own_window = true,
+	own_window_transparent = true,
+	own_window_type = 'desktop',
+	own_window_argb_visual = false,
+	own_window_argb_value = 0,
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	double_buffer = true,
+	background = true,
+	xinerama_head = 2,
+
+-- --------------- Position
+	alignment = 'bottom_right',
+	gap_x = 335,
+	gap_y = 0,
+	minimum_height = 200,
+	minimum_width = 300,
+
+-- --------------- Font
+	text_buffer_size = 2028,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	use_spacer = 'right',
+	use_xft = true,
+	override_utf8_locale = true,
+	font = 'Droid Sans:size=10',
+	uppercase = false,
+
+-- --------------- Color
+	default_color = '1D1D1D',
+
+	color1 = 'DDDDDD',
+	color2 = 'AAAAAA',
+	color3 = '888888',
+	color4 = 'EF5A29',
+	color5 = '1D1D1D',
+
+-- --------------- Other
+	update_interval = 0.5,
+	cpu_avg_samples = 1,
+	lua_load = '/home/dodo/.conky/Dodo/dodo_ringsCPU.lua',
+	lua_draw_hook_post = 'main',
+	draw_graph_borders = false,
+}
+
+conky.text = [[
+	# Showing CPU Graph
+	${voffset 84}
+	${offset 145}${cpugraph 40,165 707070 707070 -s}${voffset -7}
+	# Showing TOP 5 CPU-consumers
+	${offset 67}${color4}${top name 1}${alignr}${top cpu 1}
+	${offset 75}${color1}${top name 2}${alignr}${top cpu 2}
+	${offset 75}${color2}${top name 3}${alignr}${top cpu 3}
+	${offset 75}${color3}${top name 4}${alignr}${top cpu 4}
+	${offset 75}${color3}${top name 5}${alignr}${top cpu 5}
+]]

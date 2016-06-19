@@ -1,0 +1,74 @@
+--=============================================================================
+--								conkyrc_dodo
+-- Date		: 27/03/2016
+-- Author	: edoz90
+-- Version	: v1.0
+-- License 	: Distributed under the terms of GNU GPL version 3
+
+-- This version is a modification of conkyrc_seamod from SeaJey
+-- URL: http://seajey.deviantart.com/art/Conky-Seamod-v0-1-283461046
+
+--=============================================================================
+
+conky.config = {
+-- --------------- Window Settings
+	own_window = true,
+	own_window_transparent = false,
+	own_window_type = 'desktop',
+	own_window_argb_visual = false,
+	own_window_argb_value = 0,
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	double_buffer = true,
+	background = true,
+	xinerama_head = 2,
+
+-- ---------------- Position
+	alignment = 'bottom_right',
+	gap_x = 5,
+	gap_y = 0,
+	minimum_width = 300,
+	minimum_height = 100,
+
+-- ---------------- Font
+	text_buffer_size = 2028,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	use_spacer = 'right',
+	use_xft = true,
+	override_utf8_locale = true,
+	font = 'Droid Sans:size=10',
+	uppercase = false,
+
+-- ---------------- Color
+	default_color = '#1D1D1D',
+
+	color1 = '#DDDDDD',
+	color2 = '#AAAAAA',
+	color3 = '#888888',
+	color4 = '#EF5A29',
+	color5 = '#1D1D1D',
+
+-- ----------------- Other
+	update_interval = 1,
+	cpu_avg_samples = 1,
+	temperature_unit = 'celsius',
+	lua_load = '/home/dodo/.conky/Dodo/dodo_ringsDATA.lua',
+	lua_draw_hook_post = 'main',
+	draw_graph_borders = false
+};
+
+conky.text = [[
+# Showing disk partitions: root, home and Data
+${voffset 28}
+${offset 100}${diskiograph /dev/sda 40,200 707070 707070}
+${voffset -19}
+${offset 100}${color1}Free: ${fs_free /home}${alignr}Used: ${fs_used /home}
+${offset 100}${color1}Free: ${fs_free /}${alignr}Used: ${fs_used /}
+#${offset 100}${color1}NVIDIA: ${alignr}${exec optirun nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits} °C
+${offset 100}${color1}CPU Temp:${alignr}${acpitemp}°C
+${offset 100}${color1}HD Temp:${alignr}${exec nc localhost 7634 |sed 's/|//m' | sed 's/||/ \n/g' | awk -F'|' '{print $3}'} °C
+${offset 100}${color3}$nodename ${alignr}${color4}$uptime
+${offset 100}${color3}${sysname}${alignr}${exec uname -r}
+]];
