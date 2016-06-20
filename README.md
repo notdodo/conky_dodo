@@ -2,4 +2,4 @@
 Conky with rings and graphs
 
 
-![alt text][screenshot.png]
+![screenshot](https://github.com/edoz90/conky_dodo/blob/master/screenshot.png)
