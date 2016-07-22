@@ -61,7 +61,7 @@ function draw_gauge_ring(display, data, value)
 	cairo_stroke(display)
 
 	-- arc of value
-	local val = value % (max_value + 1)
+	local val = value * max_value / 100;
 	local start_arc = 0
 	local stop_arc = 0
 	local i = 1
