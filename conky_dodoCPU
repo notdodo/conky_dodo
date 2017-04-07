@@ -2,7 +2,7 @@
 --								conkyrc_dodo
 -- Date		: 27/03/2016
 -- Author	: edoz90
--- Version	: v1.0
+-- Version	: v1.2
 -- License 	: Distributed under the terms of GNU GPL version 3
 --
 -- This version is a modification of conkyrc_seamod from SeaJey
@@ -18,10 +18,9 @@ conky.config = {
 	own_window_argb_visual = false,
 	own_window_argb_value = 0,
 	own_window_transparent = true,
-	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
 	double_buffer = true,
-	background = true,
-	xinerama_head = 2,
+	background = false,
+	xinerama_head = 1,
 
 -- --------------- Position
 	alignment = 'bottom_right',
@@ -51,7 +50,7 @@ conky.config = {
 	color5 = '1D1D1D',
 
 -- --------------- Other
-	update_interval = 0.5,
+	update_interval = 0.7,
 	cpu_avg_samples = 1,
 	lua_load = '/home/dodo/.conky/Dodo/dodo_ringsCPU.lua',
 	lua_draw_hook_post = 'main',

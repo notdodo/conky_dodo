@@ -2,7 +2,7 @@
 --								conkyrc_dodo
 -- Date		: 27/03/2016
 -- Author	: edoz90
--- Version	: v1.0
+-- Version	: v1.2
 -- License 	: Distributed under the terms of GNU GPL version 3
 
 -- This version is a modification of conkyrc_seamod from SeaJey
@@ -18,10 +18,9 @@ conky.config = {
 	own_window_argb_visual = false,
 	own_window_argb_value = 0,
 	own_window_transparent = true,
-	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
 	double_buffer = true,
-	background = true,
-	xinerama_head = 2,
+	background = false,
+	xinerama_head = 1,
 
 -- ---------------- Position
 	alignment = 'bottom_right',
@@ -61,12 +60,12 @@ conky.config = {
 
 conky.text = [[
 # Showing disk partitions: root, home and Data
-${voffset 28}
+${voffset 33}
 ${offset 100}${diskiograph /dev/sda 40,200 707070 707070}
 ${voffset -19}
 ${offset 100}${color1}Free: ${fs_free /home}${alignr}Used: ${fs_used /home}
 ${offset 100}${color1}Free: ${fs_free /}${alignr}Used: ${fs_used /}
-#${offset 100}${color1}NVIDIA: ${alignr}${exec optirun nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits} °C
+#${offset 100}${color1}NVIDIA: ${alignr}${exec nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits} °C
 ${offset 100}${color1}CPU Temp:${alignr}${acpitemp}°C
 ${offset 100}${color1}HD Temp:${alignr}${exec nc localhost 7634 |sed 's/|//m' | sed 's/||/ \n/g' | awk -F'|' '{print $3}'} °C
 ${offset 100}${color3}$nodename ${alignr}${color4}$uptime
