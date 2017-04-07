@@ -1,0 +1,61 @@
+--=============================================================================
+--								conkyrc_dodo
+-- Date		: 07/04/2017
+-- Author	: edoz90
+-- Version	: v1.0
+-- License 	: Distributed under the terms of GNU GPL version 3
+--
+--=============================================================================
+
+conky.config = {
+-- --------------- Window Settings
+	own_window = true,
+	own_window_transparent = true,
+	own_window_type = 'desktop',
+	own_window_argb_visual = false,
+	own_window_argb_value = 0,
+	own_window_transparent = true,
+	double_buffer = true,
+	background = false,
+	xinerama_head = 2,
+
+-- --------------- Position
+	alignment = 'top_right',
+	gap_x = 10,
+	gap_y = 10,
+	minimum_height = 200,
+	minimum_width = 200,
+
+-- --------------- Font
+	text_buffer_size = 2028,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	use_spacer = 'right',
+	use_xft = true,
+	override_utf8_locale = true,
+	font = 'Droid Sans:size=10',
+	uppercase = false,
+
+-- --------------- Color
+	default_color = '1D1D1D',
+
+	color1 = 'DDDDDD',
+	color2 = 'AAAAAA',
+	color3 = '888888',
+	color4 = 'EF5A29',
+	color5 = '1D1D1D',
+
+-- --------------- Other
+	update_interval = 1,
+	draw_graph_borders = false,
+}
+
+conky.text = [[
+    # WIP NOT OPTIMAL SOLUTION
+    # TODO: autoset network iface, better colors, better fonts, improve text position
+	${voffset 40}${color4}${downspeedf wlp2s0}KB/s${voffset -47}
+	${offset 80}${downspeedgraph wlp2s0 40,165 DDDDDD DDDDDD 20000 -l}
+	${voffset 40}${color1}${upspeedf wlp2s0}KB/s${voffset -47}
+	${offset 80}${upspeedgraph wlp2s0 40,165 EF5A29 EF5A29 4000 -l}
+]]
