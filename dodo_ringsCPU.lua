@@ -211,16 +211,11 @@ function conky_main()
 
 	local cs = cairo_xlib_surface_create(conky_window.display, conky_window.drawable, conky_window.visual, conky_window.width, conky_window.height)
 	local display = cairo_create(cs)
-
-	local updates = conky_parse('${updates}')
-	update_num = tonumber(updates)
-
-	if update_num > 5 then
-		go_gauge_rings(display)
-	end
-
-	cairo_surface_destroy(cs)
+	
+	go_gauge_rings(display)
+		
 	cairo_destroy(display)
-
+	cairo_surface_destroy(cs)
+	display=nil
 end
 
