@@ -51,10 +51,9 @@ conky.config = {
 
 -- ----------------- Other
 	update_interval = 1,
-	cpu_avg_samples = 1,
 	temperature_unit = 'celsius',
-	lua_load = '/home/dodo/.conky/Dodo/dodo_ringsDATA.lua',
-	lua_draw_hook_post = 'main',
+	lua_load = '$HOME/.conky/conky_dodo/dodo_ringsDATA.lua',
+	lua_draw_hook_post = 'conky_main',
 	draw_graph_borders = false
 };
 
