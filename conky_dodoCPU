@@ -52,8 +52,8 @@ conky.config = {
 -- --------------- Other
 	update_interval = 0.7,
 	cpu_avg_samples = 1,
-	lua_load = '/home/dodo/.conky/Dodo/dodo_ringsCPU.lua',
-	lua_draw_hook_post = 'main',
+	lua_load = '$HOME/.conky/conky_dodo/dodo_ringsCPU.lua',
+	lua_draw_hook_post = 'conky_main',
 	draw_graph_borders = false,
 }
 
